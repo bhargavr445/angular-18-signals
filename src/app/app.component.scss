@@ -1,0 +1,11 @@
+.card {
+    background: rgb(237, 242, 237);
+    
+    border: 5px solid #ccc;
+    border-radius: 5px;
+    display: inline-block; /* Allow card to adjust its size based on content */
+    margin: 0 5px 10px 0; /* Adjust margin as needed */
+    box-sizing: border-box; 
+    padding: 30px;
+    
+}

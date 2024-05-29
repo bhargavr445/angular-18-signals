@@ -1,0 +1,85 @@
+
+
+@if (cartItems().length > 0) {
+    <div class="container-body">
+        <div class="container">
+            <div class="shopping-cart">
+                <div class="header">
+                    <a (click)="navigateToVehicles()"  class="back-link">← Continue shopping</a>
+                </div>
+                <h2>Shopping cart</h2>
+                <p>You have {{cartItems().length}} items in your cart</p>
+                <div class="sort-by">
+                    <span>Sort by:</span>
+                    <select>
+                        <option value="price">price</option>
+                    </select>
+                </div>
+                <div class="cart-items">
+                    @for (item of cartItems(); track item.customId) {
+                       <div class="cart-item">
+                        
+                        <div class="item-details">
+                            <h3>{{item.MakeName}}</h3>
+                            <p>{{item.VehicleTypeName}}</p>
+                        </div>
+                        <div class="item-price">
+                            <span>{{item.customId}}</span>
+                        </div>
+                        <div class="item-remove">
+                            <button (click)="removeFromCart(item)">🗑️</button>
+                        </div>
+                    </div> 
+                    }
+                </div>
+            </div>
+            <div class="card-details">
+                <h2>Card details</h2>
+                <!-- <div class="card-type">
+                    <img src="mastercard.png" alt="Mastercard">
+                    <img src="visa.png" alt="Visa">
+                    <img src="amex.png" alt="American Express">
+                    <img src="paypal.png" alt="PayPal">
+                </div> -->
+                <form>
+                    <div class="form-group">
+                        <label for="cardholder-name">Cardholder's Name</label>
+                        <input type="text" id="cardholder-name" name="cardholder-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" name="card-number">
+                    </div>
+                    <div class="form-group">
+                        <label for="expiration">Expiration</label>
+                        <input type="text" id="expiration" name="expiration">
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">Cvv</label>
+                        <input type="text" id="cvv" name="cvv">
+                    </div>
+                </form>
+                <div class="totals">
+                    <div class="subtotal">
+                        <span>Subtotal</span>
+                        <span>$4798.00</span>
+                    </div>
+                    <div class="shipping">
+                        <span>Shipping</span>
+                        <span>$20.00</span>
+                    </div>
+                    <div class="total">
+                        <span>Total (Incl. taxes)</span>
+                        <span>$4818.00</span>
+                    </div>
+                </div>
+                <button class="checkout-btn">
+                    <span>$4818.00</span>
+                    <span>CHECKOUT →</span>
+                </button>
+            </div>
+        </div>
+    </div>
+} @else {
+    <p>No items added to cart</p>
+}
