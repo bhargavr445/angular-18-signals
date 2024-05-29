@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { Ang18Component } from './Vehicle/Components/vehicle-overview/vehicle-overview.component';
 import { HeaderComponent } from './header/header.component';
-import { CartComponent } from './Vehicle/Components/vehicles-table/cart.component';
+import { CartComponent } from './Vehicle/Components/cart/cart.component';
 
 @Component({
   selector: 'app-root',
