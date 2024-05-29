@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
   selector: 'app-vehicles-table',
   standalone: true,
   imports: [],
-  templateUrl: './vehicles-table.component.html',
-  styleUrl: './vehicles-table.component.scss'
+  templateUrl: './cart.component.html',
+  styleUrl: './cart.component.scss'
 })
-export class VehiclesTableComponent {
+export class CartComponent {
 
   cartService = inject(CartService);
   router = inject(Router)

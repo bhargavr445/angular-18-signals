@@ -6,7 +6,7 @@ import { Observable, map } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class Ang18SignalService {
+export class VehicleService {
 
   constructor(private http: HttpClient) { }
 

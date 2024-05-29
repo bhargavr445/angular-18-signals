@@ -1,6 +1,5 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { CartService } from '../Vehicle/Services/cart.service';
-import { VehiclesTableComponent } from '../Vehicle/Components/vehicles-table/vehicles-table.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 import { NgClass } from '@angular/common';
@@ -8,7 +7,7 @@ import { NgClass } from '@angular/common';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [VehiclesTableComponent, NgClass],
+  imports: [NgClass],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

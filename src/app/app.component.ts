@@ -1,15 +1,14 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ChildComponent } from './child/child.component';
 import { NgIf } from '@angular/common';
-import { Ang18Component } from './Vehicle/Components/ang-18/ang-18.component';
+import { Ang18Component } from './Vehicle/Components/vehicle-overview/vehicle-overview.component';
 import { HeaderComponent } from './header/header.component';
-import { CartComponent } from './Cart/cart.component';
+import { CartComponent } from './Vehicle/Components/vehicles-table/cart.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ChildComponent, NgIf, Ang18Component, HeaderComponent, RouterOutlet, CartComponent],
+  imports: [RouterOutlet, NgIf, Ang18Component, HeaderComponent, RouterOutlet, CartComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

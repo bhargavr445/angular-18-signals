@@ -1,22 +1,22 @@
 import { Component, inject, signal } from '@angular/core';
-import { Ang18SignalComponent } from '../ang-18-signal/ang-18-signal.component';
-import { Ang18SignalService } from '../../Services/ang-18-signal.service';
 import { VehiclesResponseI } from '../../Models/VehiclesI';
 import { FormsModule } from '@angular/forms';
+import { VehicleCardComponent } from '../vehicle-card/vehicle-card.component';
+import { VehicleService } from '../../Services/vehicle.service';
 
 @Component({
   selector: 'ang-18-comp',
   standalone: true,
-  imports: [Ang18SignalComponent, FormsModule],
+  imports: [VehicleCardComponent, FormsModule],
   template: `
-    @if(response()?.Results?.length > 0){
-      <ang-18-comp-signal-comp [vehicleList]="response().Results" />
+      @for (item of response()?.Results; track $index) {
+        <app-vehicle-card [vehicleInfo]="item" />
     }
    `
 })
 export class Ang18Component {
 
-  ang18SignalService = inject(Ang18SignalService);
+  vehicleService = inject(VehicleService);
   response = signal<VehiclesResponseI>({ Count: null, Message: '', SearchCriteria: '', Results: [] });
 
   constructor() {
@@ -24,7 +24,7 @@ export class Ang18Component {
   }
 
   fetchData() {
-    this.ang18SignalService.getVehicleData().subscribe({
+    this.vehicleService.getVehicleData().subscribe({
       next: (resp: VehiclesResponseI) => this.handleSuccess(resp),
       error: (err) => this.handleError(err)
     });
@@ -32,7 +32,6 @@ export class Ang18Component {
 
   handleSuccess(resp: VehiclesResponseI) {
     this.response.set(resp);
-    // this.response = resp;
   }
 
   handleError(error) {

@@ -9,12 +9,7 @@
                 </div>
                 <h2>Shopping cart</h2>
                 <p>You have {{cartItems().length}} items in your cart</p>
-                <div class="sort-by">
-                    <span>Sort by:</span>
-                    <select>
-                        <option value="price">price</option>
-                    </select>
-                </div>
+
                 <div class="cart-items">
                     @for (item of cartItems(); track item.customId) {
                        <div class="cart-item">
