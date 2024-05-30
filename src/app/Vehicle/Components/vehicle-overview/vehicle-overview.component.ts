@@ -10,7 +10,7 @@ import { VehicleService } from '../../Services/vehicle.service';
   imports: [VehicleCardComponent, FormsModule],
   template: `
       @for (item of response()?.Results; track $index) {
-        <app-vehicle-card [vehicleInfo]="item" />
+        <app-vehicle-card [vehicleInfo]="item"  (emitSome)="emitSome($event)"/>
     }
    `
 })
@@ -36,6 +36,11 @@ export class Ang18Component {
 
   handleError(error) {
     console.log(error);
+  }
+
+  emitSome(event: string) {
+    console.log(event);
+    
   }
 
 }
